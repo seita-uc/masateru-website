@@ -1,0 +1,69 @@
+html, body {
+    font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif !important;
+    background-color: #4a4a4a;
+}
+.navbar {
+    background-color: rgba(0,0,0,0);
+}
+.modal {
+     z-index: 2000; 
+}
+video {
+    width: 100%;
+}
+canvas {
+    width: 100%;
+    vertical-align: middle;
+}
+.slick-prev:before, .slick-next:before {
+    font-size: 40px;
+    color: #dfe3e6;
+    opacity: 0.75;
+    z-index: 5;
+}
+.card {
+    border-radius: 5px 5px;
+}
+.card:hover {
+    background-color: #fafafa;
+    color: #3273dc;
+}
+.footer {
+    color: white;
+    padding: 1rem 1.5rem 1rem;
+}
+@media (min-width: 769px) {
+    .main-wrapper {
+        margin-top: 2rem;
+    }
+    .main-wrapper figure {
+        margin: 0rem 10rem 0rem 10rem;
+    }
+    .receipt-wrapper {
+        margin: 1rem 10rem;
+    }
+    .receipt-wrapper figure {
+        margin: 1rem 0 5rem 0;
+    }
+    .slick-prev {
+        left: 0px;
+        z-index: 3;
+    }
+    .slick-next {
+        right: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .main-wrapper {
+        margin-top: 2rem;
+    }
+    .receipt-wrapper {
+        margin: 1rem 0 0 0;
+    }
+    .receipt-wrapper figure {
+        margin: 1rem 0 4rem 0;
+    }
+    .slick-prev, .slick-next {
+        display: none;
+    }
+}

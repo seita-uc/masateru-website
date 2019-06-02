@@ -10,11 +10,11 @@
 <link href="{{ $css.Permalink }}" rel="stylesheet" type="text/css"/>
 
 {{ $customJs := resources.Get "js/custom.js" }}
-{{ $processingJs := resources.Get "js/processing.js" }}
 {{ $js := slice $customJs | resources.Concat "js/bundle.js" }}
 
 <!--jQuery-->
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+<!--<script src="{{ "/js/processing.js" | absURL }}"></script>-->
 <script src="{{ $js.Permalink }}"></script>

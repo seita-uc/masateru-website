@@ -1,3 +1,4 @@
+PGraphics pg;
 class Person {
     public PImage img;
     public float px;
@@ -52,7 +53,6 @@ void setup() {
     float xspeed = random(-15, 15);
     float yspeed = random(-15, 15);
     masateru = new Person(imgPath, x, y, xspeed, yspeed);
-    println("hoge");
 } 
 
 void draw() {

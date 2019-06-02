@@ -1,6 +1,13 @@
 {{ define "main" }}
 <section class="hero">
-    <video class="video" playsinline="" loop="" autoplay="" preload="auto" poster="https://cdn.travisscott.com/assets/videos/notched_coaster_poster.jpg">
+    <video 
+        class="video"
+        type="video/mp4"
+        loop
+        autoplay
+        preload="auto"
+        poster="{{ "/images/loading-roller-coaster.png" | absURL }}"
+        >
       <source src="{{ "/videos/roller-coater.mp4" | absURL }}" type="video/mp4">
     </video>
     <canvas
