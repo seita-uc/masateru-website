@@ -1,7 +1,7 @@
-baseURL = "https://maishirakawa.work/"
+baseURL = ""
 languageCode = "ja"
 defaultContentLanguage = "ja"
-title = "Mai's Portfolio"
+title = "Masateru Horiuchi"
 assetDir = "./assets/"
 enableEmoji = true
 disableKinds = ["taxonomyTerm", "taxonomy"]
@@ -10,12 +10,12 @@ disableKinds = ["taxonomyTerm", "taxonomy"]
     post = "/:year/:month/:day/:slug"
 
 [params]
-    author = "Mai"
+    author = "Masateru Horiuchi"
     location = "Tokyo"
-    site_description = "Mai Shirakawa's portfolio"
-    description = "Mai Shirakawa's portfolio"
+    site_description = "Masateru Horiuchi's Gallery"
+    description = "Masateru Horiuchi's Gallery"
     images = ["images/main.gif"]
-    copyright  = "Mai Shirakawa All Rights Reserved"
+    copyright  = "Masateru Horiuchi All Rights Reserved"
     logo = "images/favicon.ico"
     date_format = "2006-01-02"
 
