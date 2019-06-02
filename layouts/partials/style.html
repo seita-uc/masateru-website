@@ -1,0 +1,25 @@
+{{ $customCss := resources.Get "css/style.css" }}
+{{ $bulmaSass := resources.Get "bulma/bulma.sass" }}
+{{ $options := (dict "outputStyle" "nested" "includePaths" (slice "assets/bulma" "assets/bulma/sass" "targetPath" "css/bulma.css" )) }}
+{{ $bulma := $bulmaSass | resources.ToCSS $options }}
+{{ $allCss := slice $customCss }}
+{{ $css := $allCss | resources.Concat "css/main.css" }}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link href="{{ $bulma.Permalink }}" rel="stylesheet" type="text/css"/>
+<link href="{{ "slick/slick.css" | absURL }}" rel="stylesheet" type="text/css"/>
+<link href="{{ "slick/slick-theme.css" | absURL }}" rel="stylesheet" type="text/css"/>
+<link href="{{ $css.Permalink }}" rel="stylesheet" type="text/css"/>
+
+{{ $customJs := resources.Get "js/custom.js" }}
+{{ $js := slice $customJs | resources.Concat "js/bundle.js" }}
+
+<!--jQuery-->
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+<script src="{{ "slick/slick.min.js" | absURL }}"></script>
+<script src="{{ $js.Permalink }}"></script>

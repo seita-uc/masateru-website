@@ -1,0 +1,6 @@
+<footer class="footer">
+  <div class="content has-text-centered">
+      &copy; {{ now.Format "2006"}}
+      {{ with .Site.Params.copyright }}{{ . | markdownify}}{{ end }}
+  </div>
+</footer>

@@ -1,0 +1,7 @@
+{{ partial "head" . }}
+{{ partialCached "header" . }}
+<body>
+    {{ block "main" . }}{{ end }}
+    {{ partialCached "footer" . }}
+</body>
+</html>

@@ -1,0 +1,21 @@
+baseURL = "https://maishirakawa.work/"
+languageCode = "ja"
+defaultContentLanguage = "ja"
+title = "Mai's Portfolio"
+assetDir = "./assets/"
+enableEmoji = true
+disableKinds = ["taxonomyTerm", "taxonomy"]
+
+[permalinks]
+    post = "/:year/:month/:day/:slug"
+
+[params]
+    author = "Mai"
+    location = "Tokyo"
+    site_description = "Mai Shirakawa's portfolio"
+    description = "Mai Shirakawa's portfolio"
+    images = ["images/main.gif"]
+    copyright  = "Mai Shirakawa All Rights Reserved"
+    logo = "images/favicon.ico"
+    date_format = "2006-01-02"
+

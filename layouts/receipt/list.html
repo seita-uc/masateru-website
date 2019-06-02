@@ -1,0 +1,66 @@
+{{ define "main" }}
+<section class="hero is-small is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <div class="receipt-wrapper">
+                <figure class="image">
+                    <img src="{{ .Params.MainImage | absURL }}" alt="RECEIPT">
+                </figure>
+                <h1 class="is-size-4-desktop is-size-5-mobile">
+                    自分自身の言葉を用いずとも、日常をそのまま記録する媒体として、紙一重の価値をもつレシートを用いたワークショップ。
+                    2017年7月に開催。来場者のお財布からランダムに出したレシートで対話を通して、記憶を辿りストーリーを紡ぎだすワークショップとなった。
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container process-images">
+        {{ range $index, $elem := .Params.ProcessImages }}
+        <figure class="image">
+            <img src="{{ $elem | absURL }}" alt="RECEIPT">
+        </figure>
+        {{ end }}
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        {{ $colNum := 3.0 }}
+        {{ $lastRemainder := 0.0 }}
+        {{ range $index, $elem := .Params.StoryImages }}
+        {{ $divided := math.Floor (div $index $colNum) }}
+        {{ $multiplied := mul $divided $colNum }}
+        {{ $remainder := math.Round (sub $index $multiplied) }}
+        {{ if eq $remainder 0.0 }}
+        <div class="columns">
+            <div class="column">
+                <a data-fancybox="gallery" data-caption="" href="{{ . | absURL }}">
+                    <figure class="image">
+                        <img src="{{ . | absURL }}" class="img-fluid">
+                    </figure>
+                </a>
+            </div>
+            {{ else }}
+            <div class="column">
+                <a data-fancybox="gallery" data-caption="" href="{{ . | absURL }}">
+                    <figure class="image">
+                        <img src="{{ . | absURL }}" class="img-fluid">
+                    </figure>
+                </a>
+            </div>
+            {{ if eq $remainder 2.0 }}
+        </div>
+        {{ end }}
+        {{ end }}
+        {{ $lastRemainder = $remainder }}
+        {{ end }}
+        {{ if (not (eq $lastRemainder 2.0)) }}
+        <div class="column">
+        </div>
+    </div>
+    {{ end }}
+    </div>
+</section>
+{{ end }}

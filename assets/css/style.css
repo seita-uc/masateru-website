@@ -1,0 +1,55 @@
+html, body {
+    font-family: "Hiragino Maru Gothic ProN","メイリオ", sans-serif !important;
+}
+.modal {
+     z-index: 2000; 
+}
+.slick-prev:before, .slick-next:before {
+    font-size: 40px;
+    color: #dfe3e6;
+    opacity: 0.75;
+    z-index: 5;
+}
+.card {
+    border-radius: 5px 5px;
+}
+.card:hover {
+    background-color: #fafafa;
+    color: #3273dc;
+}
+
+@media (min-width: 769px) {
+    .main-wrapper {
+        margin-top: 2rem;
+    }
+    .main-wrapper figure {
+        margin: 0rem 10rem 0rem 10rem;
+    }
+    .receipt-wrapper {
+        margin: 1rem 10rem;
+    }
+    .receipt-wrapper figure {
+        margin: 1rem 0 5rem 0;
+    }
+    .slick-prev {
+        left: 0px;
+        z-index: 3;
+    }
+    .slick-next {
+        right: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .main-wrapper {
+        margin-top: 2rem;
+    }
+    .receipt-wrapper {
+        margin: 1rem 0 0 0;
+    }
+    .receipt-wrapper figure {
+        margin: 1rem 0 4rem 0;
+    }
+    .slick-prev, .slick-next {
+        display: none;
+    }
+}
