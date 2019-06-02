@@ -32,4 +32,7 @@ footer.footer {
 @media (min-width: 769px) {
 }
 @media (max-width: 768px) {
+    html, body {
+        overflow: hidden;
+    }
 }
