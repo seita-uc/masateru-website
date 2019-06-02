@@ -1,5 +1,9 @@
 html, body {
-    font-family: "Hiragino Maru Gothic ProN","メイリオ", sans-serif !important;
+    font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif !important;
+    background-color: #4a4a4a;
+}
+.navbar {
+    background-color: rgba(0,0,0,0);
 }
 .modal {
      z-index: 2000; 
@@ -20,7 +24,10 @@ video {
     background-color: #fafafa;
     color: #3273dc;
 }
-
+.footer {
+    color: white;
+    padding: 1rem 1.5rem 1rem;
+}
 @media (min-width: 769px) {
     .main-wrapper {
         margin-top: 2rem;
