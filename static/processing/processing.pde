@@ -1,44 +1,62 @@
-import gifAnimation.*;
+class Person {
+    public PImage img;
+    public float px;
+    public float py;
+    public float pxspeed;
+    public float pyspeed;
+    public Boolean isOn;
+    public float psize;
 
-PImage img;
-PImage[] circularSmallImgs = new PImage[8];
-PImage[] circularBigImgs = new PImage[8];
-int randIndex1;
-int randIndex2;
-GifMaker gifExport;
-void setup(){
-    size(displayWidth, 500);
-    background(255);
-
-    /*frameRate(12);*/
-    gifExport = new GifMaker(this, "images/export.gif");
-    gifExport.setRepeat(0);				// make it an "endless" animation
-    /*gifExport.setTransparent(0, 0, 0);	// black is transparent*/
-
-    String imgPath = "images/main.jpg";
-    img = loadImage(imgPath);
-    img.resize(width, 0);
-    for(int i = 0; i < 8; i++) {
-        String circularImgPath = "images/circular_img_" + (i+1) + ".jpg";
-        circularSmallImgs[i] = loadImage(circularImgPath);
-        circularSmallImgs[i].resize(260, 260);
-        circularBigImgs[i] = loadImage(circularImgPath);
-        circularBigImgs[i].resize(315, 315);
+    public Person(String imgPath, float x, float y, float xspeed, float yspeed) {
+        img = loadImage(imgPath);
+        px = x;
+        py = y;
+        pxspeed = xspeed;
+        pyspeed = yspeed;
+        isOn = true;
+        psize = random(100, 300);
     }
-} 
 
-void draw(){
-    image(img, 0, 0);
-    image(circularSmallImgs[randIndex1], 410, 203);
-    image(circularBigImgs[randIndex2], 680, 145);
-    if (random(100) > 50) {
-        randIndex1 = int(random(circularSmallImgs.length-1));
-        randIndex2 = int(random(circularBigImgs.length-1));
+    public void walk() {
+        if(isOn) {
+            image(img, px, py, psize, psize);
+        }
+
+        px = px + pxspeed;
+        py = py + pyspeed;
+
+        if(px > 800) {
+            pxspeed = -pxspeed;
+        } else if (px < 0) {
+            pxspeed = -pxspeed;
+        }
+
+        if(py > 800) {
+            pyspeed = -pyspeed;
+        } else if (py < 0) {
+            pyspeed = -pyspeed;
+        }
     }
-    /*gifExport.setDelay(1);*/
-    gifExport.addFrame();
+
+    public void changeSize(float size) {
+        psize = size;
+    }
 }
 
-void mousePressed() {
-    gifExport.finish();
+Person masateru;
+void setup() {
+    size(800, 800);
+    String imgPath = "./images/masateru.png";
+    float x = random(0, 800);
+    float y = random(0, 800);
+    float xspeed = random(-15, 15);
+    float yspeed = random(-15, 15);
+    masateru = new Person(imgPath, x, y, xspeed, yspeed);
+    println("hoge");
+} 
+
+void draw() {
+    clear();
+    imageMode(CENTER);
+    masateru.walk();
 }

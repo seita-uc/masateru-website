@@ -11,6 +11,10 @@ html, body {
 video {
     width: 100%;
 }
+canvas {
+    width: 100%;
+    vertical-align: middle;
+}
 .slick-prev:before, .slick-next:before {
     font-size: 40px;
     color: #dfe3e6;
