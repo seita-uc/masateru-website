@@ -17,8 +17,8 @@ const main = function(p5) {
 
         const imgPath = "./images/masateru.png";
         for(let i = 0; i < 5; i++) {
-            const x = p5.random(0, 800);
-            const y = p5.random(0, 800);
+            const x = p5.random(0, canvasWidth);
+            const y = p5.random(0, canvasHeight);
             const xspeed = p5.random(-15, 15);
             const yspeed = p5.random(-15, 15);
             const masateru = new Person(p5, imgPath, x, y, xspeed, yspeed);
@@ -41,7 +41,13 @@ const main = function(p5) {
 
     p5.mousePressed = function() {
         for(let i = 0; i < masaterus.length; i++) {
-            const size = p5.random(100, 300);
+            let size;
+            const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            if(iOS) {
+                size = p5.random(10, 100);
+            } else {
+                size = p5.random(100, 300);
+            }
             masaterus[i].changeSize(size);
         }
     }
@@ -59,8 +65,12 @@ class Person {
         this.pxspeed = xspeed;
         this.pyspeed = yspeed;
         this.isOn = true;
-        this.psize = p5.random(100, 300);
-
+        const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        if(iOS) {
+            this.psize = p5.random(10, 100);
+        } else {
+            this.psize = p5.random(100, 300);
+        }
     }
 
     walk() {
