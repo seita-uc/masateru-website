@@ -4,6 +4,9 @@ html, body {
 .modal {
      z-index: 2000; 
 }
+video {
+    width: 100%;
+}
 .slick-prev:before, .slick-next:before {
     font-size: 40px;
     color: #dfe3e6;

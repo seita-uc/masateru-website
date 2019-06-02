@@ -1,44 +1,42 @@
 {{ define "main" }}
 <section class="hero has-navbar-fixed-top">
-    <div class="container main-wrapper">
-        <figure class="image">
-            <img src="{{ index .Site.Params.images 0 | absURL }}" alt="MAIN">
-        </figure>
-    </div>
+    <video class="video" playsinline="" loop="" autoplay="" preload="auto" poster="https://cdn.travisscott.com/assets/videos/notched_coaster_poster.jpg">
+      <source src="{{ "/videos/roller-coater.mp4" | absURL }}" type="video/mp4">
+    </video>
 </section>
 
-<section class="section">
-    <div class="container">
-        <div class="columns">
-            <div class="column">
-                <div class="card">
-                    <a href="{{ "/receipt" | absURL }}">
-                        <div class="card-content has-text-centered">
-                            <p class="title">
-                            <span class="icon has-text-primary is-medium">
-                                <i class="fas fa-scroll"></i>
-                            </span>
-                            <strong>レシート！</strong>
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <a href="{{ "/balloon" | absURL }}">
-                        <div class="card-content has-text-centered">
-                            <p class="title">
-                            <span class="icon has-text-info is-medium">
-                                <i class="fas fa-bullseye"></i>
-                            </span>
-                            <strong>BA!LOON!</strong>
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!--<section class="section">-->
+    <!--<div class="container">-->
+        <!--<div class="columns">-->
+            <!--<div class="column">-->
+                <!--<div class="card">-->
+                    <!--<a href="{{ "/receipt" | absURL }}">-->
+                        <!--<div class="card-content has-text-centered">-->
+                            <!--<p class="title">-->
+                            <!--<span class="icon has-text-primary is-medium">-->
+                                <!--<i class="fas fa-scroll"></i>-->
+                            <!--</span>-->
+                            <!--<strong>レシート！</strong>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="column">-->
+                <!--<div class="card">-->
+                    <!--<a href="{{ "/balloon" | absURL }}">-->
+                        <!--<div class="card-content has-text-centered">-->
+                            <!--<p class="title">-->
+                            <!--<span class="icon has-text-info is-medium">-->
+                                <!--<i class="fas fa-bullseye"></i>-->
+                            <!--</span>-->
+                            <!--<strong>BA!LOON!</strong>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</section>-->
 {{ end }}
