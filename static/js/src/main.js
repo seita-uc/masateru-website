@@ -102,8 +102,8 @@ class Person {
 
 (function() {
     new p5(main);
+    $(window).on('touchmove.noScroll', function(e) {
+        e.preventDefault();
+    });
 })();
 
-$(window).on('touchmove.noScroll', function(e) {
-    e.preventDefault();
-});
