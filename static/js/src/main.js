@@ -100,5 +100,10 @@ class Person {
     }
 }
 
-new p5(main);
+(function() {
+    new p5(main);
+})();
 
+$(window).on('touchmove.noScroll', function(e) {
+    e.preventDefault();
+});
