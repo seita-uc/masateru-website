@@ -103,5 +103,3 @@ function craeateCanvasOfParentSize(p5, parent) {
 }
 
 export let masateru = sketch;
-
-
