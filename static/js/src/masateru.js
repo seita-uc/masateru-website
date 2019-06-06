@@ -30,7 +30,9 @@ const sketch = function(p5) {
 
     p5.windowResized = function() {
         const hero = document.getElementsByClassName("hero")[0];
-        p5.resizeCanvas(hero.clientWidth, hero.clientHeight);
+        canvasWidth = hero.clientWidth;
+        canvasHeight = hero.clientHeight;
+        p5.resizeCanvas(canvasWidth, canvasHeight);
     }
 
     p5.mousePressed = function() {
