@@ -5,6 +5,12 @@ function init() {
     const hero = document.getElementsByClassName("hero")[0];
     const width = hero.clientWidth;
     const height = hero.clientHeight;
+    let mouseX;
+    let mouseY;
+    document.onmousemove = function(e){
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+    }
 
     const onProgress = function(xhr) {
         if (xhr.lengthComputable) {
@@ -28,14 +34,10 @@ function init() {
         scene.add(obj);
     }, onProgress, onError);
 
-    //light
     const light = new THREE.DirectionalLight("white", 1);
     light.position.set(0, 0, 30);
     light.castShadow = true;
     scene.add(light);
-
-    //const ambient = new THREE.AmbientLight(0xffffff);
-    //scene.add(ambient);
 
     const camera = new THREE.PerspectiveCamera(45, width/height, 1, 10000);
     camera.position.set(0, 0, 1000);
