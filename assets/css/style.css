@@ -21,7 +21,9 @@ video {
 }
 canvas {
     width: 100%;
+    position: absolute;
     vertical-align: middle;
+    z-index: 100;
     overflow: hidden;
 }
 .hero {

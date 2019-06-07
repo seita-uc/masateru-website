@@ -13,7 +13,8 @@
 {{ $p5MinJs := resources.Get "js/p5.min.js" }}
 {{ $p5DomMinJs := resources.Get "js/p5.dom.min.js" }}
 {{ $threeMinJs := resources.Get "js/three.min.js" }}
-{{ $js := slice $customJs $p5MinJs $p5DomMinJs | resources.Concat "js/bundle.js" }}
+{{ $objLoaderJs := resources.Get "js/OBJLoader.js" }}
+{{ $js := slice $customJs $p5MinJs $p5DomMinJs $threeMinJs $objLoaderJs | resources.Concat "js/bundle.js" }}
 
 <!--jQuery-->
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
