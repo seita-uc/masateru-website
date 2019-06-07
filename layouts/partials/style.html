@@ -10,11 +10,12 @@
 <link href="{{ $css.Permalink }}" rel="stylesheet" type="text/css"/>
 
 {{ $customJs := resources.Get "js/custom.js" }}
-{{ $js := slice $customJs | resources.Concat "js/bundle.js" }}
+{{ $p5MinJs := resources.Get "js/p5.min.js" }}
+{{ $p5DomMinJs := resources.Get "js/p5.dom.min.js" }}
+{{ $threeMinJs := resources.Get "js/three.min.js" }}
+{{ $js := slice $customJs $p5MinJs $p5DomMinJs | resources.Concat "js/bundle.js" }}
 
 <!--jQuery-->
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
-<script src="{{ "/js/dist/bundle.js" | absURL }}"></script>
 <script src="{{ $js.Permalink }}"></script>
+<script src="{{ "/js/dist/bundle.js" | absURL }}"></script>

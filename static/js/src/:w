@@ -8,7 +8,7 @@ let pg;
 let context;
 const sketch = function(p5) {
     p5.preload = async function() {
-        shape = p5.loadModel('models/mask.obj', true);
+        //shape = p5.loadModel('models/mask.obj', true);
     }
 
     p5.setup = async function() {
@@ -37,7 +37,6 @@ const sketch = function(p5) {
         context.clearColor(0, 0, 0, 0);
         //p5.clear();
         context.clear(context.DEPTH_BUFFER_BIT | context.COLOR_BUFFER_BIT);
-        //context.drawElements(context.TRIANGLES, 100, context.UNSIGNED_SHORT, 0);
 
         //p5.push();
         //p5.imageMode(p5.CENTER);
@@ -60,7 +59,7 @@ const sketch = function(p5) {
         //p5.specularMaterial(250);
         //p5.noStroke();
         //p5.scale(2.5);
-        p5.model(shape);
+        //p5.model(shape);
         //p5.pop();
     }
 
@@ -79,13 +78,11 @@ const sketch = function(p5) {
 }
 
 function craeateCanvasOfParentSize(p5, parent) {
-    canvas = p5.createCanvas(parent.clientWidth, parent.clientHeight, p5.WEBGL);
-    //canvas = p5.createCanvas(parent.clientWidth, parent.clientHeight);
-    //canvas = p5.select('#canvas3d');
-    //canvas.parent(parent);
+    //canvas = p5.createCanvas(parent.clientWidth, parent.clientHeight, p5.WEBGL);
+    canvas = p5.createCanvas(parent.clientWidth, parent.clientHeight);
+    canvas.parent(parent);
     canvas.position(0, 0);
     canvas.style('z-index', '3000');
-    const gl = start(canvas);
     //canvas.style('opacity', '0.5');
     //renderer = new THREE.WebGLRenderer({
     //canvas: document.querySelector("#" + canvas.id())
@@ -93,9 +90,9 @@ function craeateCanvasOfParentSize(p5, parent) {
     return canvas;
 }
 
-function start(glCanvas) {
-    const can = document.getElementById(glCanvas.id());
-    const gl = initWebGL(can);
+function start(canvas) {
+    var canvas = document.getElementById(canvas.id());
+    const gl = initWebGL(canvas);
     if (gl) {
         gl.clearColor(0.0, 0.0, 0.0, 0);
         // 深度テストを有効化
@@ -106,10 +103,10 @@ function start(glCanvas) {
     return gl;
 }
 
-function initWebGL(can) {
+function initWebGL(canvas) {
     let gl = null;
     try {
-        gl = can.getContext("webgl") || canvas.getContext("experimental-webgl");
+        gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
     }
     catch(e) {}
     if (!gl) {
