@@ -38,9 +38,13 @@ footer.footer {
     bottom: 0;
     z-index: 2;
     background-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+}
+footer.footer div::selection {
+    background-color: rgba(0, 0, 0, 0) !important;
 }
 .arrow {
-    z-index: 100;
+    z-index: 50;
     position: absolute;
     top: 0;
     left: 0;
