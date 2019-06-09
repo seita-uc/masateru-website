@@ -2,10 +2,8 @@ let canvasWidth;
 let canvasHeight;
 let canvas;
 let masaterus = new Array();
-let video;
 const sketch = function(p5) {
     p5.setup = async function() {
-        video = $('#video-element-id').get(0);
 
         const hero = document.getElementsByClassName("hero")[0];
         canvas = craeateCanvasOfParentSize(p5, hero);
@@ -39,7 +37,6 @@ const sketch = function(p5) {
     }
 
     p5.mousePressed = function() {
-        video.play();
         for(let i = 0; i < masaterus.length; i++) {
             let size;
             const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;

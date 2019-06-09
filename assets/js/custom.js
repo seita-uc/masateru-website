@@ -6,6 +6,10 @@ $(document).ready(function(){
         $('.arrow').click(function() {
             video.play();
         });
+        const touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
+        window.addEventListener(touchEvent, function() {
+            video.play();
+        });
     } else {
         video.play();
     }
