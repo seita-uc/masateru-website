@@ -81,17 +81,49 @@ function init() {
     
     const onLoad = function(event) {
         const obj = event.detail.loaderRootNode;
-        obj.scale.set(3, 3, 3);
+        obj.scale.set(4, 4, 4);
         obj.rotation.z = Math.PI;
-        obj.position.x = 275;
-        obj.position.y = 300;
-        obj.traverse(function(node) {
+        obj.position.x = 360;
+        obj.position.y = 385;
+        if(iOS) {
+            obj.scale.set(3, 3, 3);
+            obj.position.x = 275;
+            obj.position.y = 300;
+        }
+        obj.traverse(async function(node) {
             if(node.material) {
-                node.material.side = THREE.DoubleSide;
+                try {
+                    //const texture = await loadTexture();
+                    //node.material = new THREE.MeshBasicMaterial({
+                        //map: texture,
+                        //wireframe: true,
+                    //});
+                    //node.material = new THREE.MeshStandardMaterial({
+                        //metalness: 0.7,
+                        //roughness: 0.2,
+                    //});
+                    node.material.side = THREE.DoubleSide;
+                } catch(err) {
+                    console.error(err);
+                }
+
+                function loadTexture() {
+                    const loader = new THREE.TextureLoader();
+                    return new Promise((resolve, reject) => {
+                        try {
+                            const url = "https://threejsfundamentals.org/threejs/resources/images/flower-1.jpg"
+                            return loader.load(url, (texture) => {
+                                return resolve(texture);
+                            });
+                        } catch(err) {
+                            return reject(err);
+                        }
+                    });
+                }
             }
         });
-        scene.add(obj);
         model = obj;
+        scene.add(obj);
     }
     const ObjLoader = new THREE.OBJLoader2();
     const filename = 'models/masateru2.obj';
@@ -99,7 +131,7 @@ function init() {
     ObjLoader.load(filename, onLoad, onProgress, onError, null, true);
 
     const light = new THREE.DirectionalLight("white", 1);
-    light.position.set(0, 0, 30);
+    light.position.set(0, 0, 10);
     //light.castShadow = true;
     scene.add(light);
 
