@@ -54,10 +54,10 @@ function init() {
         console.error("Error loading obj mtl: " + xhr);
     }
     let model;
+
     //const MtlLoader = new THREE.MTLLoader();
     //MtlLoader.load(".mtl", function( materials ) {
         //materials.preload();
-
         //const ObjLoader = new THREE.OBJLoader(); 
         ////ObjLoader.setMaterials( materials );
         //ObjLoader.load("models/masateru.obj", function(obj) {
@@ -89,12 +89,9 @@ function init() {
         if(iOS) {
             obj.scale.set(0.15, 0.15, 0.15);
         }
-        console.log(obj.position.x);
-
-
         //obj.rotation.y = -Math.PI / 2;
         obj.rotation.z = Math.PI;
-        obj.position.x = 300;
+        obj.position.x = 275;
         obj.position.y = 300;
         obj.traverse(function(node) {
             if(node.material) {
