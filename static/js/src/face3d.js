@@ -1,6 +1,7 @@
 window.addEventListener('load', init);
 
 function init() {
+    const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     const scene = new THREE.Scene();
     let hero = document.getElementsByClassName("hero")[0];
     let width = hero.clientWidth;
@@ -19,7 +20,7 @@ function init() {
     function onTouchMove(event) {
         mouseX = getPositionX(event) - window.innerWidth / 2;
         mouseY = getPositionY(event) - window.innerHeight / 2;
-        camera.position.x -= (mouseX + camera.position.x) * 0.1;
+        camera.position.x -= (mouseX + camera.position.x) * 0.2;
         camera.position.y += (mouseY - camera.position.y) * 0.2;
         camera.lookAt(scene.position);
         function getPositionX(event) {
@@ -63,12 +64,10 @@ function init() {
         //ObjLoader.load("models/masateru.obj", function(obj) {
             ////obj.scale.set(0.25, 0.25, 0.25);
             //obj.scale.set(1.5, 1.5, 1.5);
-
             //const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
             //if(iOS) {
                 //obj.scale.set(0.15, 0.15, 0.15);
             //}
-
             //obj.rotation.y = -Math.PI / 2;
             //obj.traverse(function(node) {
                 //if(node.material) {
@@ -82,14 +81,7 @@ function init() {
     
     const onLoad = function(event) {
         const obj = event.detail.loaderRootNode;
-        //obj.scale.set(0.25, 0.25, 0.25);
         obj.scale.set(3, 3, 3);
-
-        const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        if(iOS) {
-            obj.scale.set(0.15, 0.15, 0.15);
-        }
-        //obj.rotation.y = -Math.PI / 2;
         obj.rotation.z = Math.PI;
         obj.position.x = 275;
         obj.position.y = 300;
@@ -127,13 +119,18 @@ function init() {
     renderer.setClearColor(0xeeeee, 0);    
     renderer.shadowMap.enabled = true;       
 
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    let controls;
+    if(!iOS) {
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+    }
 
     hero.appendChild(renderer.domElement);
     tick();
 
     function tick() {
-        controls.update();
+        if(!iOS) {
+            controls.update();
+        }
         requestAnimationFrame(tick);
         renderer.render(scene, camera);
     }
