@@ -1,4 +1,12 @@
-window.addEventListener('load', init);
+$(document).ready(init);
+
+function hideLoadingScreen() {
+    //$('#loading-screen').hide('slide', { 
+        //direction: 'right',
+        //easing: 'easeOutBounce'
+    //}, 800, function() {
+    //});
+}
 
 function init() {
     const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
@@ -80,6 +88,8 @@ function init() {
     //});
     
     const onLoad = function(event) {
+        $('#loading-screen').fadeOut(800, "swing");
+
         const obj = event.detail.loaderRootNode;
         obj.scale.set(4, 4, 4);
         obj.rotation.z = Math.PI;
